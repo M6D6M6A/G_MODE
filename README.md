@@ -34,6 +34,7 @@
 ## Prerequisites
 
 - Alienware Command Center (AWCC)
+- Administrator rights
 
 ## Introduction
 
