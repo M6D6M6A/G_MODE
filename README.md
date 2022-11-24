@@ -42,7 +42,7 @@ I had found the GMode.exe from the video and liked the program, but I don't like
 
 With both Powershell and Visual Basic Script you can easily read the source code with a text editor, but I still explain each line of code here.
 
-## Installation
+## Installation [(Video)](https://www.youtube.com/watch?v=SmMtJ7l6naM)
 
 1. Download ZIP from the green Code Button in the top right.
 2. Extract the ZIP to any location.
