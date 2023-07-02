@@ -1,3 +1,6 @@
+> **Warning!** **IMPORTANT SECURITY NOTICE:**
+> Currently, PowerShell Execution Policy must be set to `Unrestricted` to run these scripts as they are not yet signed (`Set-ExecutionPolicy Unrestricted`). This allows all scripts, including potential malicious ones, to run. Only use this setting if you understand the risks. I plan to implement code signing in the future to improve security!
+
 # <a align="center"><img src="GMode.svg"/></a>
 
 <table>
