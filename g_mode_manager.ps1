@@ -1,12 +1,12 @@
 # Add these lines at the beginning of your script to create a log file
 $scriptPath = Split-Path -Parent $MyInvocation.MyCommand.Definition
-$logFile = Join-Path $scriptPath "Log_$(Get-Date -Format 'yyyy-MM-dd_HH-mm-ss').txt"
+$logFile = Join-Path $scriptPath "log.txt"
 "Script started at $(Get-Date)" | Out-File -FilePath $logFile -Append
 
 # Replace Write-Debug with a custom logging function
 function Write-Log {
     param(
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true)]
         [string]$Message
     )
 
@@ -60,7 +60,7 @@ function MsgBoxInstall {
     $msgTitle = "Install AWCC"
     $msgButton = 'OkCancel'
     $msgImage = 'Error'
-    $Result = [System.Windows.MessageBox]::Show($msgBody,$msgTitle,$msgButton,$msgImage)
+    $Result = [System.Windows.MessageBox]::Show($msgBody, $msgTitle, $msgButton, $msgImage)
     switch ($Result) {
         "Ok" {
             Start-Process "https://www.dell.com/support/kbdoc/en-us/000178439/how-to-remove-and-reinstall-the-alienware-command-center?lwp=rt"
@@ -77,7 +77,8 @@ function AWCCWaitLoadedDLL {
     Write-Log "Waiting for `"$DLLName`"..."
     Do {
         Start-Sleep -Milliseconds 100
-        $found = ExistLoadedDLL($DLLName)} while (-Not $found)
+        $found = ExistLoadedDLL($DLLName)
+    } while (-Not $found)
     Write-Log "Found `"$DLLName`"!"
 }
 
@@ -89,8 +90,8 @@ function ExistLoadedDLL {
 
 function GetPowerPlan {
     $plan = Get-WmiObject -Class win32_powerplan -Namespace root\cimv2\power -Filter "isActive='true'" -ErrorAction SilentlyContinue | Select-Object -Property ElementName
-    if ($plan) { return $plan[0].ElementName}
-    else { return $plan}
+    if ($plan) { return $plan[0].ElementName }
+    else { return $plan }
 }
 
 function ToggleGMode {
