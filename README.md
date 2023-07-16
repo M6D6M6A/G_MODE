@@ -1,7 +1,6 @@
-> **Warning**<br>
-> Currently, the PowerShell Execution Policy must be set to `Unrestricted` to run these scripts because they are not yet signed (`Set-ExecutionPolicy Unrestricted` in a **Admin** terminal). This will allow all scripts to run, including potentially malicious ones. Use this setting only if you understand the risks. I plan to implement code signing in the future to improve security!
+> **Warning** Currently, you have to **unblock** the PowerShell scripts because they are not signed (it is not free to sign them!): **`dir ./*.ps1 | Unblock-File`** (in a **Admin PowerShell Terminal**). This will unblock all the PowerShell scripts in that folder and allow them to run.
 
-# <a align="center"><img src="GMode.svg"/></a>
+# G Mode
 
 <table>
     <tr>
