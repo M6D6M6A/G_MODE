@@ -1,4 +1,4 @@
-> **Warning** Currently, you have to **unblock** the PowerShell scripts because they are not signed (it is not free to sign them!): **`dir ./*.ps1 | Unblock-File`** (in a **Admin PowerShell Terminal**). This will unblock all the PowerShell scripts in that folder and allow them to run.
+> **Warning** Currently, you have to **unblock** the PowerShell scripts because they are not signed (it is not free to sign them!): **`dir C:/Path/To/POLY_ANAL/*.ps1 | Unblock-File`** (in a **Admin PowerShell Terminal** and don't forget to **replace `C:/Path/To/POLY_ANAL` with your real path!**). This will unblock all the PowerShell scripts in that folder and allow them to run.
 
 # G Mode
 
