@@ -62,8 +62,3 @@ With both Powershell and Visual Basic Script, you can easily read the source cod
 ## Usage
 
 You have two options, `run.vbs` to just simulate a single keypress and `run_manager.vbs` to also automatically manage AWCC if it is not running or crashed and make sure it switches to the other mode.
-
-&nbsp;&nbsp;&nbsp;&nbsp;**&#x27A5;** **_Use the keybd_event function to release Key Code 0x80 (128)._**
-
-</p>
-</details>
