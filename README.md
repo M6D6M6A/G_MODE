@@ -19,7 +19,7 @@
     </tr>
     <tr>
         <td>Version:</td>
-        <td>1.0.0</td>
+        <td>2.0.0</td>
     </tr>
     <tr>
         <td>Generated:</td>
