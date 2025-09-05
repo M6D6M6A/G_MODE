@@ -46,7 +46,7 @@
 ## Prerequisites
 
 - Alienware Command Center (AWCC)
-- Administrator rights
+- Administrator rights (only to unlock the files)
 
 ## Introduction
 

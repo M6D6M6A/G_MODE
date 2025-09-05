@@ -48,10 +48,19 @@ class Logger {
     Returns a tuple containing the name and ID of the active power plan.
 #>
 function Get-CurrentPowerPlanId {
-    $powerPlan = Get-WmiObject -Class Win32_PowerPlan -Namespace root\cimv2\power -Filter "isActive='true'"
-    $powerPlanName = $powerPlan.ElementName
-    $powerPlanId = [regex]::Match($powerPlan.InstanceID, '[^{]+(?=})').Value
-    return $powerPlanName, $powerPlanId
+    # Using powercfg command to get the active power scheme
+    $output = powercfg /getactivescheme
+    if ($output -match '([0-9a-fA-F-]{36})\s+\((.+)\)') {
+        $powerPlanId = $matches[1]
+        $powerPlanName = $matches[2]
+        return $powerPlanName, $powerPlanId
+    }
+    else {
+        [Logger]::WriteLog("powercfg output format unexpected.")
+        [Logger]::WriteLog("powercfg output: $output")
+    }
+
+    return $null, $null  # if both methods fail
 }
 
 <#
@@ -111,8 +120,8 @@ class GModeManager {
         if (Test-Path -Path $this.filePath) {
             $jsonData = Get-Content -Path $this.filePath | ConvertFrom-Json
             $this.profilesMap = @{}
-            foreach ($profile in $jsonData.profiles) {
-                $this.profilesMap[$profile.id] = $profile.name
+            foreach ($item in $jsonData.profiles) {
+                $this.profilesMap[$item.id] = $item.name
             }
             return $this.profilesMap
         }
