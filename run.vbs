@@ -1,4 +1,4 @@
 current_directory = CreateObject("Scripting.FileSystemObject").GetAbsolutePathName(".")
 ps1_script_path = current_directory & "\g_mode.ps1"
 cmd = "-executionpolicy unrestricted -file " & ps1_script_path
-CreateObject("Shell.Application").ShellExecute "powershell.exe", cmd, "", "runas", 0
+CreateObject("Shell.Application").ShellExecute "powershell.exe", cmd, "", "", 0
